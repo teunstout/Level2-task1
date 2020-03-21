@@ -9,15 +9,17 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    var places = arrayListOf<Place>()
-    var placeAdapter = PlaceAdapter(places)
+    private val places = arrayListOf<Place>()
+    private val placeAdapter = PlaceAdapter(places)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         for (i in Place.PLACE_NAMES.indices) {
             places.add(Place(Place.PLACE_NAMES[i], Place.PLACE_RES_DRAWABLE_IDS[i]))
         }
+
         placeAdapter.notifyDataSetChanged()
         initViews()
     }
@@ -25,6 +27,6 @@ class MainActivity : AppCompatActivity() {
     private fun initViews() {
         rvPlaces.layoutManager = StaggeredGridLayoutManager(2,1)
         rvPlaces.adapter = placeAdapter
-        rvPlaces.addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))
+        rvPlaces.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
     }
 }

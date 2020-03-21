@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Places Of Interest</string>
     <string name="noTitleFound">No title Found</string>
+    <string name="image_for_place">Image for place</string>
 </resources>
